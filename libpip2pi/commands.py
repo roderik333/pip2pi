@@ -374,15 +374,15 @@ def _dir2pi(option, argv):
 
         if pkg_name not in processed_pkg:
             pkg_index += "<a href='%s/'>%s</a><br />\n" %(
-                cgi.escape(pkg_dir_name),
-                cgi.escape(pkg_name),
+                cgi.html.escape(pkg_dir_name),
+                cgi.html.escape(pkg_name),
             )
             processed_pkg.add(pkg_name)
 
         if option.build_html:
             with open(os.path.join(pkg_dir, "index.html"), "a") as fp:
                 fp.write("<a href='%(name)s'>%(name)s</a><br />\n" %{
-                    "name": cgi.escape(pkg_basename),
+                    "name": cgi.html.escape(pkg_basename),
                 })
     pkg_index += "</body></html>\n"
 
